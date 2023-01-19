@@ -11,7 +11,7 @@ public class LivroLivraria {
 	public LivroLivraria() {} //default
 	//sobrecarregado
 	public LivroLivraria(String titulo, String autor, int isbn, String genero, float preco) {
-		super();
+		//super();
 		this.titulo = titulo;
 		this.autor = autor;
 		this.isbn = isbn;

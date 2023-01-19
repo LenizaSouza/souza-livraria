@@ -19,10 +19,51 @@ public class AppLivroLivraria {
 			menu = entrada.nextInt();
 			
 			switch(menu) {
+			case 1://cadastro do livro
+				System.out.println("===> Cadastrar Livro");
+				System.out.println("Digite o título: ");
+				titulo = entradaString.nextLine();
+				System.out.println("Digite o autor: ");
+				autor = entradaString.nextLine();
+				System.out.println("Digite o genero: ");
+				genero = entradaString.nextLine();
+				System.out.println("Digite o ISBN: ");
+				isbn = entrada.nextInt();
+				System.out.println("Digite o preço: ");
+				preco = entrada.nextFloat();
+				
+				//criar objeto da classe
+				objLivro = new LivroLivraria(titulo, autor, isbn, genero, preco);
+				
+				//guardar no ArrayList
+				Acervo.adicionar(objLivro);					
+				break;
+			case 2:
+				System.out.println("===> Listagem de Livro");
+				System.out.println(Acervo.listar());
+				break;
+			case 3:
+				System.out.println("===> Exclusão do Livro");
+				System.out.println("Digite o título do Livro");
+				titulo = entradaString.nextLine();
+				
+				if( ! (Acervo.getListaLivros().isEmpty())) {//acervo não vazio
+					if(Acervo.remover(titulo)){
+						System.out.println("Livro removido com sucesso!!");
+				}else{
+					System.out.println("Título não encontrado!!");
+				}
+				}else {
+					System.out.println("Não existem livros no acervo!!");
+				}
+				break;
+			case 4:
+				System.out.println("===> Pesquisa pelo genero");
+				System.out.println("Digite o genero: ");
+				genero = entradaString.nextLine();
+				System.out.println("Existem " + Acervo.pesquisar(genero) + "livro(s) do genero " + genero);
+				break;
 			
-			}
-			
-		}while(menu != 7);
 		
 	}//fim main
 	
