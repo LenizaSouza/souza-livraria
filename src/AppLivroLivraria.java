@@ -63,7 +63,28 @@ public class AppLivroLivraria {
 				genero = entradaString.nextLine();
 				System.out.println("Existem " + Acervo.pesquisar(genero) + "livro(s) do genero " + genero);
 				break;
+			case 5:
+				System.out.println("===> Pesquisar por faixa de preço");
+				System.out.println("Digite a faixa inicial e a final: ");
+				vInicial = entrada.nextDouble();
+				vFinal = entrada.nextDouble();
+				
+				System.out.println("Existem " + Acervo.pesquisar(vInicial, vFinal) + " livro(s) com preço entre " + String.format("R$ %.2f e R$ %.2f \n", vInicial, vFinal));
+				break;
+			case 6:
+				System.out.println("===> Total em R$ de livros no Acervo");
+				System.out.println("O total é: " + String.format(" R$ %.2f \n", Acervo.calcularTotalAcervo()));
+				break;
+			case 7:
+				System.out.println("Saindo....");
+
+				break;
 			
+				default:
+					System.out.println("Opção de menu inválida!!!");			
+			}
+			
+		}while(menu != 7);
 		
 	}//fim main
 	
